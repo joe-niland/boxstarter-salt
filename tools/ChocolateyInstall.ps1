@@ -14,7 +14,7 @@ try {
 		throw "There was a problem downloading the bootstrap-salt.ps1 file to ${downloadDir}"
 	}
 
-	Invoke-Expression "${env:temp}\salt\bootstrap-salt.ps1 -version $SALT_VERSION -runservice true -minion salt-minion -master `"master`""
+	Invoke-Expression "${downloadDir}\bootstrap-salt.ps1 -version $SALT_VERSION -runservice true -minion salt-minion -master `"master`""
 
 } catch {
 	throw $_.Exception
