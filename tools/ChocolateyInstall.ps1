@@ -1,6 +1,6 @@
 try {
 
-	$SALT_VERSION = '2016.3.0'
+	$SALT_VERSION = '2016.3.1'
 
 	$downloadDir = "${env:temp}\salt\"
 
@@ -14,7 +14,7 @@ try {
 		throw "There was a problem downloading the bootstrap-salt.ps1 file to ${downloadDir}"
 	}
 
-	Invoke-Expression "${downloadDir}\bootstrap-salt.ps1 -version $SALT_VERSION -runservice true -minion salt-minion -master `"master`""
+	Invoke-Expression "${downloadDir}\bootstrap-salt.ps1 -version $SALT_VERSION -runservice true -minion salt-minion -master `"masterless`""
 
 } catch {
 	throw $_.Exception
