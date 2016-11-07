@@ -9,7 +9,8 @@ Current Limitations
 + Some things are hard-coded in this package:
     + Salt version 2016.3.4
     + Run as Windows service
-    + Master is set to "masterless"
+    + Minion is configured in masterless mode
+    + Master is set to host name "masterless"
 
 Building
 ==========
