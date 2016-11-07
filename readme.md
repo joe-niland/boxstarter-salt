@@ -3,7 +3,13 @@ Provision-Salt :: BoxStarter package to install Salt on Windows
 
 This BoxStarter packages is a very basic wrapper around bootstrap-salt.ps1. Requires further work to expose config variables or pull them from a config store, etc.
 
-Currently Salt version 2016.3.1 is hard-coded in this package.
+Current Limitations
+=====================
+
++ Some things are hard-coded in this package:
+    + Salt version 2016.3.4
+    + Run as Windows service
+    + Master is set to "masterless"
 
 Building
 ==========
@@ -29,7 +35,7 @@ You will need BoxStarter installed, which can be done with [Chocolatey](https://
 cinst Boxstarter -y
 ```
 
-If you are using Sublime Text, I've created a [Sublime Build System for BoxStarter](https://github.com/joe-niland/boxstarter-sublime-build).
+If you are using Sublime Text, I've created a [Sublime Build System for BoxStarter](https://github.com/joe-niland/boxstarter-sublime-build) which automates the above.
 
 Usage
 ========
@@ -39,6 +45,8 @@ Once you have a package built you can run it remotely with the following command
 ```
 # Get your domain or machine credentials
 $cred = Get-Credential domain\username
-# Add -DisableReboots if you don't want any pending reboots to be executed
+# Inlcude Boxstarter modules for remote deployment
+Import-Module Boxstarter.Chocolatey
+# Remove -DisableReboots if you want any pending reboots to be executed
 Install-BoxstarterPackage -ComputerName ServerToBeSalted -PackageName Provision-Salt -Credential $cred -DisableReboots
 ```

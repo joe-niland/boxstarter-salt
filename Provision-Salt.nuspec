@@ -2,7 +2,7 @@
 <package>
   <metadata>
     <id>Provision-Salt</id>
-    <version>1.0.0</version>
+    <version>1.0.2</version>
     <authors>90906166</authors>
     <owners>90906166</owners>
     <description>Provisions Windows servers with git and salt-minion</description>
