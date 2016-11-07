@@ -1,10 +1,10 @@
 Provision-Salt :: BoxStarter package to install Salt on Windows
-----------------------------------------------------------------
+================================================================
 
 This BoxStarter packages is a very basic wrapper around bootstrap-salt.ps1. Requires further work to expose config variables or pull them from a config store, etc.
 
 Current Limitations
-=====================
+-------------------
 
 + Some things are hard-coded in this package:
     + Salt version 2016.3.4
@@ -13,7 +13,7 @@ Current Limitations
     + Master is set to host name "masterless"
 
 Building
-==========
+-------------------
 
 If you change anything in tools\ChocolateyInstall.ps1 or Provision-Salt.nuspec you will need to build a new BoxStarter package.
 
@@ -39,7 +39,7 @@ cinst Boxstarter -y
 If you are using Sublime Text, I've created a [Sublime Build System for BoxStarter](https://github.com/joe-niland/boxstarter-sublime-build) which automates the above.
 
 Usage
-========
+-------------------
 
 Once you have a package built you can run it remotely with the following command (from PowerShell console):
 
