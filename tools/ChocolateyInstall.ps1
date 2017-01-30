@@ -1,6 +1,11 @@
+<#
+.SYNOPSIS
+    A BoxStarter package to install and configure a salt-minion in masterless mode on Windows.
+#>
+
 try {
 
-	$SALT_VERSION = '2016.3.4'
+	$SALT_VERSION = '2016.11.0'
 	$SALT_SERVICE = 'salt-minion'
 	$SALT_HOME = 'C:\salt'
 
@@ -21,7 +26,7 @@ try {
 		Stop-Service "$SALT_SERVICE"
 	}
 
-	Invoke-Expression "${downloadDir}\bootstrap-salt.ps1 -version $SALT_VERSION -runservice true -minion salt-minion -master `"masterless`""
+	Invoke-Expression "${downloadDir}\bootstrap-salt.ps1 -version $SALT_VERSION -runservice true -master `"masterless`""
 
 	# Configure Salt Minion to run masterless
 	Add-Content "$($SALT_HOME)\conf\minion.d\minion.conf" "file_client: local"
@@ -44,6 +49,8 @@ try {
 	  Write-Debug "Adding Salt bin location to persistent machine PATH"
 	  $env:Path = [Environment]::SetEnvironmentVariable('Path', $currentMachinePath + ";" + $saltExePath, [System.EnvironmentVariableTarget]::Machine)
 	}
+
+	choco install git
 
 } catch {
 	throw $_.Exception

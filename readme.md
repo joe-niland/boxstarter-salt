@@ -3,6 +3,8 @@ Provision-Salt :: BoxStarter package to install Salt on Windows
 
 This BoxStarter packages is a very basic wrapper around bootstrap-salt.ps1. Requires further work to expose config variables or pull them from a config store, etc.
 
+It also installs git so you can use gitfs remotes.
+
 Current Limitations
 -------------------
 
@@ -11,6 +13,11 @@ Current Limitations
     + Run as Windows service
     + Minion is configured in masterless mode
     + Master is set to host name "masterless"
+
+Known Issues (to be fixed)
+------------------
+
++ This package is currently not idempotent: running more than once will remove salt-minion service
 
 Building
 -------------------
